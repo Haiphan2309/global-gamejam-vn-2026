@@ -149,16 +149,17 @@ namespace GDC.Managers
         {
             UnloadScene(sceneType, cb);
         }
-        // public void LoadSceneManually(string sceneName, TransitionType transitionType)
-        // {
-        //     SceneType sceneType = GameSceneManager.TranslateToSceneType(sceneName);
-        //     if (sceneType == SceneType.UNKNOWN)
-        //     {
-        //         Debug.LogError("Cannot load scene: " + sceneName + ", Scene Name is not in SceneConfig yet!");
-        //         return;
-        //     }
-        //     LoadSceneWithTransition(sceneType, true, transitionType);
-        // }
+
+        public void LoadSceneManually(string sceneName, TransitionType transitionType)
+        {
+            SceneType sceneType = GameSceneManager.TranslateToSceneType(sceneName);
+            if (sceneType == SceneType.UNKNOWN)
+            {
+                Debug.LogError("Cannot load scene: " + sceneName + ", Scene Name is not in SceneConfig yet!");
+                return;
+            }
+            LoadSceneManually(sceneType, transitionType);
+        }
         public void TransitionIn(System.Action cb = null, TransitionType transitionType = TransitionType.NONE, SoundType soundType = SoundType.NONE)
         {
             StartCoroutine(Cor_TransitionIn(cb, transitionType, soundType));

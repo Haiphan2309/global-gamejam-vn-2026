@@ -35,8 +35,8 @@ MonoBehaviour:
       elementIcon: {fileID: 0}
     reqReferences: {fileID: 0}
     isExpanded: 1
-    _keyValues: 0300000000000000
-    _keys: 0300000000000000
+    _keyValues: 0400000000000000
+    _keys: 0400000000000000
     _values:
-    - Intro
+    - Gameplay
     - MainMenu

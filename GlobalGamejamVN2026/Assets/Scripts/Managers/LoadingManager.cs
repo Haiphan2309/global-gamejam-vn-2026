@@ -59,12 +59,20 @@ namespace GDC.Managers
                 }
                 else
                 {
-                    tipText.gameObject.SetActive(false);
+                    if (tipText)
+                    {
+                        tipText.gameObject.SetActive(false);
+                    }
                 }
             }
         }
         private void ShowTip()
         {
+            if (tipText == null)
+            {
+                return;
+            }
+
             tipText.gameObject.SetActive(true);
             if (tipDatas == null)
             {
