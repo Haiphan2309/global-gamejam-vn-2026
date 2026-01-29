@@ -93,5 +93,13 @@ namespace GDC.Utils
                 FindChildRecursive(child, name, result);
             }
         }
+
+        public static void ClearAllChild(Transform parent)
+        {
+            foreach (Transform child in parent)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
     }
 }
