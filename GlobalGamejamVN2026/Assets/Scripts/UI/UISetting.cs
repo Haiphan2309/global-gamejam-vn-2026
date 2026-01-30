@@ -1,5 +1,4 @@
 using GDC.Managers;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +7,6 @@ public class UISetting : UIBasePopup
     [SerializeField] private Button menuBtn, hideButton;
     [SerializeField] private Slider musicSlider, soundSlider;
     [SerializeField] private int maxVolume = 10;
-
-    [Button]
     public override void Show(bool isPlaySound = true, bool isPlayAnimation = true)
     {
         base.Show(isPlaySound, isPlayAnimation);

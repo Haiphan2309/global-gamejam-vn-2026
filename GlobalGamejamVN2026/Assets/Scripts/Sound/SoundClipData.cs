@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using Sirenix.OdinInspector;
 
 namespace AudioPlayer
 {
@@ -14,23 +13,22 @@ namespace AudioPlayer
         //[ReorderableList]
         public List<AudioClip> Clips;
 
-        [BoxGroup("Options")]
         public bool IsLoop = false;
-        [BoxGroup("Options")]
+
         public bool IsPitch = false;
-        [BoxGroup("Options")]
+
         public bool IsAlone = false;
-        [BoxGroup("Options")]
+
         public bool IsContinues = false;
-        [BoxGroup("Options")]
+
         public bool IsSequence = false;
-        [BoxGroup("Options")]
+
         public bool IsLowPriority = false;
-        [BoxGroup("Options")][MinValue(0f)]
+ 
         public float FadeInTime = 0f;
-        [BoxGroup("Options")][MinValue(0f)]
+
         public float FadeOutTime = 0f;
-        [BoxGroup("Options")]
+
         public AudioMixerGroup SpecificMixerGroup;
 
         private int currentSequenceIndex = 0;
@@ -38,7 +36,6 @@ namespace AudioPlayer
         private List<AudioClip> seasonalClips;
 
 #if UNITY_EDITOR
-        [Button]
         void RenameToId()
         {
             UnityEditor.AssetDatabase.RenameAsset(UnityEditor.AssetDatabase.GetAssetPath((Object)this), Id.ToString());

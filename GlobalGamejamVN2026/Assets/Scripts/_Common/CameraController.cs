@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -15,13 +14,11 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    [Button]
     public void Shake(float duration = 0.3f, float strength = 0.4f)
     {
         m_cameraContainer.DOShakePosition(duration, strength).OnComplete(() => m_cameraContainer.DOMove(Vector2.zero, 0.05f));
     }
 
-    [Button]
     public void Zoom(float size, Vector2 position, float duration = 0.5f)
     {
         m_camera.DOOrthoSize(size, duration);

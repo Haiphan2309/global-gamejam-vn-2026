@@ -5,7 +5,6 @@ using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using Sirenix.OdinInspector;
 using Extensions;
 
 public enum SoundType
@@ -24,11 +23,10 @@ namespace AudioPlayer
         public SoundType soundType;
         [SerializeField] string path = "SoundData";
         string mapPath = "SoundMaps";
-        [ReadOnly]
+
         public List<SoundMapping> SoundMappingList;
 
 
-        [Button("Load All Sound Data From Resources")]
         public void LoadSoundData()
         {
 
@@ -89,7 +87,6 @@ namespace AudioPlayer
             return null;
         }
 
-        [Button]
         public void ClearSoundData()
         {
             SoundMappingList.Clear();
@@ -100,7 +97,6 @@ namespace AudioPlayer
             #endif
         }
 
-        [Button]
         public void EditSoundDefine()
         {
             #if UNITY_EDITOR
@@ -114,8 +110,8 @@ namespace AudioPlayer
     public class SoundMapping : IComparable
     {
         [HideInInspector] public string name;
-        [ReadOnly] public SoundID Id;
-        [ReadOnly] public SoundClipData Data;
+        public SoundID Id;
+        public SoundClipData Data;
 
         public SoundMapping(SoundID id, SoundClipData data)
         {

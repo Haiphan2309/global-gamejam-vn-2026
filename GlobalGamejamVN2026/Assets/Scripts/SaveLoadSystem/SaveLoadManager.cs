@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
-
 namespace GDC.Managers
 {
     public class SaveLoadManager : MonoBehaviour
@@ -26,15 +24,12 @@ namespace GDC.Managers
             }
             Instance = this;
         }
-
-        [Button]
         public void Save()
         {
             GameDataOrigin = GameData.ConvertToGameDataOrigin();
             StartCoroutine(Cor_SaveLoadProgress("Save success"));
             //print("SAVE game");
         }
-        [Button]
         public void Load()
         {
             SaveLoadSystem.LoadData(GameDataOrigin);
@@ -44,7 +39,6 @@ namespace GDC.Managers
             StartCoroutine(Cor_SaveLoadProgress("load success"));
             //Debug.Log("Load successed");
         }
-        [Button]
         public void ResetData()
         {
             GameDataOrigin gamedataOrigin = new GameDataOrigin();

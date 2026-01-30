@@ -1,6 +1,5 @@
 using DG.Tweening;
 using GDC.Utils;
-using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -122,7 +121,6 @@ public class PopupManager : MonoBehaviour
     }
 
     //Show popup prefabs
-    [Button]
     public void ShowSetting()
     {
         ShowBlackBg();
