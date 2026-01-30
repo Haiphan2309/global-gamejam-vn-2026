@@ -5,7 +5,7 @@ using GDC.Managers;
 
 namespace AudioPlayer
 {
-    public class MusicController : MonoSingleton<MusicController>
+    public class MusicController : Singleton<MusicController>
     {
         private AudioSource currentAudioSource;
         public void PlayMusic(SoundID musicID)
