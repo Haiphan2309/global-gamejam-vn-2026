@@ -31,6 +31,7 @@ public class FaceController : Singleton<FaceController>
 
     public float dotweenYTarget = -10f;
 
+    bool isEndGame = false;
     void Start()
     {
         transform.position = new Vector2(0.94f, -10f);
@@ -159,6 +160,11 @@ public class FaceController : Singleton<FaceController>
 
     public void Angry()
     {
+        if (isEndGame)
+        {
+            return;
+        }
+        isEndGame = true;
         StartCoroutine(Cor_CallLose());
     }
 
@@ -172,6 +178,11 @@ public class FaceController : Singleton<FaceController>
 
     public void Happy()
     {
+        if (isEndGame)
+        {
+            return;
+        }
+        isEndGame = true;
         animator.Play("Happy");
         RemoveAllMaskObject();
 
