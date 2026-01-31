@@ -43,7 +43,6 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_currentPercent = 0;
         m_isPlaying = true;
 
-        if (endPanel) endPanel.SetActive(false);
         UpdateUI();
     }
 
@@ -77,7 +76,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_isPlaying = false;
         Debug.Log("YOU WIN!");
         if (endPanel) endPanel.SetActive(true);
-        OnGameWin?.Invoke(m_currentPercent);
+        Game_End.Instance.ShowScoreWin(m_currentPercent);
     }
 
     private void GameLose()
@@ -85,7 +84,11 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_isPlaying = false;
         Debug.Log("GAME OVER!");
         if (endPanel) endPanel.SetActive(true);
-        OnGameLose?.Invoke(m_currentPercent);
+        else
+        {
+            Debug.Log("A");
+        }
+        Game_End.Instance.ShowScoreLose(m_currentPercent);
     }
 
     private void UpdateUI()

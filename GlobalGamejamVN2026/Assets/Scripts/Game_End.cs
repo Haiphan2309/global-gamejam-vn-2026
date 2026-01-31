@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using DG.Tweening;
 
-public class Game_End : MonoBehaviour
+public class Game_End : Singleton<Game_End>
 {
     [SerializeField] private TMP_Text resultText;
     [SerializeField] private TMP_Text resultText_shadow;
@@ -19,54 +19,60 @@ public class Game_End : MonoBehaviour
     [SerializeField] private float timeSet = 5f;
     [SerializeField] private RectTransform panel;
     private bool isWin = false;
-    
+
+    bool isActiveAgain = false;
+    int scoreValue = 0;
 
     void OnEnable()
     {
-        panel.anchoredPosition = new Vector2(0, -10f);
+        panel.anchoredPosition = new Vector2(0, -1000f);
         resultText.gameObject.SetActive(false);
         resultText_shadow.gameObject.SetActive(false);
         hanabi.SetActive(false);
         button.SetActive(false);
-        if (GamePlayManager.Instance == null)
-            return;
-
-        GamePlayManager.Instance.OnGameWin += ShowScoreWin;
-        GamePlayManager.Instance.OnGameLose += ShowScoreLose;
-
-
     }
 
     void OnDisable()
     {
         resultText.gameObject.SetActive(false);
         resultText_shadow.gameObject.SetActive(false);
-        if (GamePlayManager.Instance == null)
-            return;
-
-        GamePlayManager.Instance.OnGameWin -= ShowScoreWin;
-        GamePlayManager.Instance.OnGameLose -= ShowScoreLose;
     }
 
+    void LateUpdate()
+    {
+        if (isActiveAgain)
+        {
+            StartCoroutine(ScoreRoutine(scoreValue));
+            isActiveAgain = false;
+        }
+    }
     public void ShowScoreWin(int scoreValue)
     {
+        FaceController.Instance.Happy();
         isWin = true;
         Debug.Log("Show Score Win called with score: " + scoreValue);
         resultText.text = "YOU WIN!";
         resultText_shadow.text = "YOU WIN!";
 
         StopAllCoroutines();
-        StartCoroutine(ScoreRoutine(scoreValue));
+        panel.gameObject.SetActive(true);
+        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f);
+        isActiveAgain = true;
+        this.scoreValue = scoreValue;
     }
 
-    private void ShowScoreLose(int scoreValue)
+    public void ShowScoreLose(int scoreValue)
     {
+        FaceController.Instance.Angry();
         Debug.Log("Show Score Lose called with score: " + scoreValue);
         resultText.text = "TRY AGAIN!";
         resultText_shadow.text = "TRY AGAIN!";
+        
         StopAllCoroutines();
-        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack);
-        StartCoroutine(ScoreRoutine(scoreValue));
+        panel.gameObject.SetActive(true);
+        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f);
+        isActiveAgain = true;
+        this.scoreValue = scoreValue;
     }
 
     IEnumerator ScoreRoutine(int scoreValue)
@@ -91,13 +97,12 @@ public class Game_End : MonoBehaviour
 
         if(isWin)
         {
-            FaceController.Instance.Happy();
+            
             hanabi.SetActive(true);
             button.SetActive(true);
         }
         else
         {
-            FaceController.Instance.Angry();
             button.SetActive(true);
             Transform children = button.transform.GetChild(2);
             children.gameObject.SetActive(false);
