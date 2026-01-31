@@ -29,9 +29,11 @@ public class FaceController : Singleton<FaceController>
     Coroutine sneezeCor;
     [SerializeField] private GameObject stopSneezeVfx;
 
+    public float dotweenYTarget = -10f;
+
     void Start()
     {
-        transform.position = new Vector2(0.94f, -10f);
+        transform.position = new Vector2(0.94f, dotweenYTarget);
         transform.DOMoveY(0, 1f).SetDelay(1f).OnComplete(() =>
         {
             GamePlayManager.Instance.StartLevel();
