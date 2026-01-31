@@ -1041,6 +1041,9 @@ MonoBehaviour:
   blackBgPrefab: {fileID: 3752314380522951951, guid: 7401d05b1eff14240a81ba4e973e8753, type: 3}
   touchOutsideText: {fileID: 3090679385112788002}
   uiSettingPrefab: {fileID: 0}
+  uiTutorial1: {fileID: 2322123609758896916, guid: 23825e7731242f84083bcf683c72626e, type: 3}
+  uiTutorial2: {fileID: 0}
+  uiTutorial3: {fileID: 0}
 --- !u!1 &7369782133999644144
 GameObject:
   m_ObjectHideFlags: 0

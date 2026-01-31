@@ -18,6 +18,7 @@ public class PopupManager : MonoBehaviour
 
     [Header("Popup prefab")]
     [SerializeField] private UISetting uiSettingPrefab;
+    [SerializeField] private UIBasePopup uiTutorial1, uiTutorial2, uiTutorial3;
 
     private void Awake()
     {
@@ -64,6 +65,11 @@ public class PopupManager : MonoBehaviour
         }
 
         popupStack.Peek().Hide();
+    }
+
+    public bool IsPopupShowing()
+    {
+        return popupStack.Count > 0;
     }
 
     public void ClosePopup()
@@ -127,5 +133,29 @@ public class PopupManager : MonoBehaviour
         UISetting uiSetting = Instantiate(uiSettingPrefab, canvasTrans);
         uiSetting.Show();
         PushStack(uiSetting);
+    }
+
+    public void ShowTutorial1()
+    {
+        ShowBlackBg();
+        UIBasePopup ui = Instantiate(uiTutorial1, canvasTrans);
+        ui.Show();
+        PushStack(ui);
+    }
+
+    public void ShowTutorial2()
+    {
+        ShowBlackBg();
+        UIBasePopup ui = Instantiate(uiTutorial2, canvasTrans);
+        ui.Show();
+        PushStack(ui);
+    }
+
+    public void ShowTutorial3()
+    {
+        ShowBlackBg();
+        UIBasePopup ui = Instantiate(uiTutorial3, canvasTrans);
+        ui.Show();
+        PushStack(ui);
     }
 }

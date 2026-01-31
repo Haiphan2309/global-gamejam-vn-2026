@@ -25,6 +25,11 @@ public class GamePlayManager : Singleton<GamePlayManager>
     private int m_currentPercent;
     private bool m_isPlaying;
 
+    public int currentLevel;
+
+    public bool isNeedShowTutorial;
+    public bool isShowingTutorial;
+
     private void Start()
     {
         SoundManager.Instance.PlayGamePlayBGM();
@@ -36,16 +41,49 @@ public class GamePlayManager : Singleton<GamePlayManager>
         {
             HandleTimer();
         }
+
+        if (isShowingTutorial && PopupManager.Instance.IsPopupShowing())
+        {
+            targetPanel.SetupTargetPanel(targetPercent);
+            m_currentTime = 0;
+            OnTimeChanged?.Invoke(m_currentTime, levelTime);
+            m_currentPercent = 0;
+            m_isPlaying = true;
+
+            UpdateUI();
+        }
     }
     public void StartLevel()
     {
-        targetPanel.SetupTargetPanel(targetPercent);
-        m_currentTime = 0;
-        OnTimeChanged?.Invoke(m_currentTime,levelTime);
-        m_currentPercent = 0;
-        m_isPlaying = true;
+        if (isNeedShowTutorial)
+        {
+            if (currentLevel == 1)
+            {
+                isShowingTutorial = true;
+                PopupManager.Instance.ShowTutorial1();
+            }
+            else if (currentLevel == 2)
+            {
+                isShowingTutorial = true;
+                PopupManager.Instance.ShowTutorial2();
+            }
+            else if (currentLevel == 3)
+            {
+                isShowingTutorial = true;
+                PopupManager.Instance.ShowTutorial3();
+            }
+        }
+        else
+        {
 
-        UpdateUI();
+            targetPanel.SetupTargetPanel(targetPercent);
+            m_currentTime = 0;
+            OnTimeChanged?.Invoke(m_currentTime, levelTime);
+            m_currentPercent = 0;
+            m_isPlaying = true;
+
+            UpdateUI();
+        }
     }
 
     private void HandleTimer()

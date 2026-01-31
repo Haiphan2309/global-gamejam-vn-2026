@@ -1064,6 +1064,9 @@ MonoBehaviour:
   timeBar: {fileID: 1944703950}
   scoreText: {fileID: 711162415}
   endPanel: {fileID: 736136882}
+  currentLevel: 1
+  isNeedShowTutorial: 1
+  isShowingTutorial: 0
 --- !u!1001 &869453848
 PrefabInstance:
   m_ObjectHideFlags: 0
