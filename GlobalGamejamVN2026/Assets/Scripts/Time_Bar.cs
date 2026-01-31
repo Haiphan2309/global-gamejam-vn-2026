@@ -12,32 +12,30 @@ public class Time_Bar : MonoBehaviour
     [SerializeField] private Image timeFill;
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text timeText2;
-    [SerializeField] private float timeSet;
-    public void Start()
+
+    void OnEnable()
     {
-        SetupTimeBar(60);
+        if (GamePlayManager.Instance == null)
+            return;
+
+        GamePlayManager.Instance.OnTimeChanged += HandleTimeChanged;
     }
 
-    public void SetupTimeBar(float totalTime)
+    void OnDisable()
     {
-        timeSet = totalTime;
-        timeBar.SetActive(true);
-        StartCoroutine(TimeRoutine());
+        if (GamePlayManager.Instance == null)
+            return;
+
+        GamePlayManager.Instance.OnTimeChanged -= HandleTimeChanged;
+
     }
 
-    // Update is called once per frame
-    IEnumerator TimeRoutine()
+    private void HandleTimeChanged(float currentTime, float maxTime)
     {
-        float time=0;
-        while(time < timeSet)
-        {
-            time += Time.deltaTime;
-            float percent = Mathf.Clamp01(time / timeSet);
-            timeFill.fillAmount = percent;
-            TimeSpan timeSpan = TimeSpan.FromSeconds(timeSet - time);
-            timeText.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
-            timeText2.text = timeText.text;
-            yield return null;  
-        }
+        float percent = Mathf.Clamp01(currentTime / maxTime);
+        timeFill.fillAmount = percent;
+        TimeSpan timeSpan = TimeSpan.FromSeconds(maxTime - currentTime);
+        timeText.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+        timeText2.text = timeText.text;
     }
 }
