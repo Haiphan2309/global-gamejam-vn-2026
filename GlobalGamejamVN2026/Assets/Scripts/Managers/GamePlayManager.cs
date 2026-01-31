@@ -32,6 +32,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     private void Start()
     {
+        SoundManager.Instance.SetMusicVolume(1);
         SoundManager.Instance.PlayGamePlayBGM();
     }
 

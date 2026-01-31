@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 using UnityEngine.SocialPlatforms.Impl;
 using DG.Tweening;
+using GDC.Managers;
 
 public class Game_End : Singleton<Game_End>
 {
@@ -56,7 +57,11 @@ public class Game_End : Singleton<Game_End>
 
         StopAllCoroutines();
         panel.gameObject.SetActive(true);
-        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f);
+        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f).OnComplete(()=>
+        {
+            SoundManager.Instance.SetMusicVolume(0);
+            SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_WIN);
+            });
         isActiveAgain = true;
         this.scoreValue = scoreValue;
     }
@@ -70,7 +75,10 @@ public class Game_End : Singleton<Game_End>
         
         StopAllCoroutines();
         panel.gameObject.SetActive(true);
-        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f);
+        panel.DOAnchorPosY(0, 1f).SetEase(Ease.OutBack).SetDelay(2f).OnComplete(() => {
+            SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_LOSE);
+            SoundManager.Instance.SetMusicVolume(0);
+        });
         isActiveAgain = true;
         this.scoreValue = scoreValue;
     }
@@ -117,15 +125,20 @@ public class Game_End : Singleton<Game_End>
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.LoadSceneManually("Level_" + (SceneManager.GetActiveScene().buildIndex - 1).ToString(), GDC.Enums.TransitionType.IN);
     }
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        GameManager.Instance.LoadSceneManually("MainMenu", GDC.Enums.TransitionType.IN);
     }
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            GameManager.Instance.LoadSceneManually("MainMenu", GDC.Enums.TransitionType.IN);
+            return;
+        }
+        GameManager.Instance.LoadSceneManually("Level_" + (SceneManager.GetActiveScene().buildIndex - 1).ToString(), GDC.Enums.TransitionType.IN);
     }
 
 }

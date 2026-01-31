@@ -9,6 +9,10 @@ public class MainMenuController : MonoBehaviour
 {
     public RectTransform startButtonRect, levelMenuButtonRect;
 
+    private void Start()
+    {
+        SoundManager.Instance.SetMusicVolume(1);
+    }
     public void ShowLevelMenu()
     {
         startButtonRect.DOAnchorPosX(-1980, 0.5f);
