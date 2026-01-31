@@ -8,6 +8,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     [Header("Level Settings")]
     [SerializeField] private float levelTime = 60f;
     [SerializeField] private int targetPercent = 100;
+    [SerializeField] private UITargetBanner targetPanel;
 
     [Header("UI References")]
     [SerializeField] private Time_Bar timeBar;
@@ -38,6 +39,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     }
     public void StartLevel()
     {
+        targetPanel.SetupTargetPanel(targetPercent);
         m_currentTime = 0;
         OnTimeChanged?.Invoke(m_currentTime,levelTime);
         m_currentPercent = 0;
