@@ -40,6 +40,8 @@ public class Game_End : MonoBehaviour
     {
         Debug.Log("Show Score Win called with score: " + scoreValue);
         resultText.text = "YOU WIN!";
+        resultText_shadow.text = "YOU WIN!";
+
         StopAllCoroutines();
         StartCoroutine(ScoreRoutine(scoreValue));
     }
@@ -48,6 +50,7 @@ public class Game_End : MonoBehaviour
     {
         Debug.Log("Show Score Lose called with score: " + scoreValue);
         resultText.text = "TRY AGAIN!";
+        resultText_shadow.text = "TRY AGAIN!";
         StopAllCoroutines();
         StartCoroutine(ScoreRoutine(scoreValue));
     }
