@@ -27,5 +27,8 @@ namespace GDC.Enums
         INTRO = 3,   
 
         GAMEPLAY,
+        LEVEL1,
+        LEVEL2,
+        LEVEL3,
     }
 }

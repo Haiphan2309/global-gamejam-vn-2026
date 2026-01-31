@@ -6358,7 +6358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Gameplay
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6971,7 +6971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Gameplay
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7545,7 +7545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Gameplay
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 1032520495462371698, guid: 6042e10169caecd45b59c1b1da32c1cf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
