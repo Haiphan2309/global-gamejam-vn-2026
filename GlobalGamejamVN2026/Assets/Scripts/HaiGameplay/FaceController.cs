@@ -1,20 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FaceController : MonoBehaviour
+public class FaceController : Singleton<FaceController>
 {
     [SerializeField] private Transform dotContainer;
     [SerializeField] private Transform pimpleContainer;
     [SerializeField] private Transform freckleContainer;
     [SerializeField] LayerMask cucumberLayerMask;
+    [SerializeField] Animator animator;
+
+    [SerializeField] private Transform eye1;
+    [SerializeField] private Transform eye2;
+    [SerializeField] private float maxEyeOffset;
+
+    Vector2 eye1OriginLocalPos, eye2OriginLocalPos;
+
     // Start is called before the first frame update
 
     public int testResult;
     public bool isPimpleLegit, isFreckleLegit;
     void Start()
     {
-        
+        eye1OriginLocalPos = eye1.localPosition;
+        eye2OriginLocalPos = eye2.localPosition;
+
+        animator.Play("Idle");
     }
 
     // Update is called once per frame
@@ -23,6 +32,18 @@ public class FaceController : MonoBehaviour
         testResult = CalculateResult();
         isPimpleLegit = CheckPimpleLegit();
         isFreckleLegit = CheckAllFrecklesLegit();
+
+        Vector3 mouseScreen = Input.mousePosition;
+        mouseScreen.z = 10;
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+
+        Vector3 dir1 = mouseWorld - eye1.position;
+        Vector2 offset1 = Vector2.ClampMagnitude(dir1, maxEyeOffset);
+        eye1.localPosition = eye1OriginLocalPos + offset1;
+
+        Vector3 dir2 = mouseWorld - eye2.position;
+        Vector2 offset2 = Vector2.ClampMagnitude(dir2, maxEyeOffset);
+        eye2.localPosition = eye2OriginLocalPos + offset2;
     }
 
     public int CalculateResult()
@@ -74,5 +95,15 @@ public class FaceController : MonoBehaviour
         }
 
         return true;
-    }  
+    }
+
+    public void Angry()
+    {
+        animator.Play("Angry");   
+    }
+
+    public void Happy()
+    {
+        animator.Play("Angry");
+    }
 }
