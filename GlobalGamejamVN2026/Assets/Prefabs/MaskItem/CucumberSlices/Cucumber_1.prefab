@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 10fcf7e9756cb1c44ac0ae6f10ffe7d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 569c87b97f5f3bd4ea43bfc6ee4b2999, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 10fcf7e9756cb1c44ac0ae6f10ffe7d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 569c87b97f5f3bd4ea43bfc6ee4b2999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5121,8 +5121,7 @@ MonoBehaviour:
   m_interactPriority: 0
   animator: {fileID: 5874314709469227160}
   dropVfx: {fileID: 7677999645967685475}
-  isInFace: 0
-  isOverlapMaskObject: 0
+  itemType: 0
   m_state: 0
 --- !u!50 &8038085325013954751
 Rigidbody2D:
@@ -5197,12 +5196,14 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.7116169, y: 0.52558875}
       - {x: 0.48499525, y: 0.79068184}
-      - {x: -0.008751988, y: 0.81870997}
+      - {x: -0.14082587, y: 0.92602026}
       - {x: -0.5312732, y: 0.7566335}
-      - {x: -0.74773747, y: 0.5123359}
-      - {x: -0.7656893, y: -0.00421232}
-      - {x: 0.0032429695, y: -0.83443207}
-      - {x: 0.70537925, y: -0.021376431}
+      - {x: -0.8963209, y: 0.5123359}
+      - {x: -1.0463471, y: -0.061994493}
+      - {x: -0.6704521, y: -0.7147722}
+      - {x: -0.0050115585, y: -0.8922145}
+      - {x: 0.6181364, y: -0.6209531}
+      - {x: 0.8787267, y: -0.021376431}
   m_UseDelaunayMesh: 0
 --- !u!1 &8986393887406652353
 GameObject:

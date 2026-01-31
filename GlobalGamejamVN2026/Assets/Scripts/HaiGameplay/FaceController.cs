@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FaceController : Singleton<FaceController>
@@ -64,6 +65,7 @@ public class FaceController : Singleton<FaceController>
 
     public bool CheckPimpleLegit()
     {
+        bool isLegit = true;
         for (int i = 0; i < pimpleContainer.childCount; i++)
         {
             if (!pimpleContainer.GetChild(i).gameObject.activeSelf)
@@ -71,15 +73,27 @@ public class FaceController : Singleton<FaceController>
                 continue;
             }
 
-            Collider2D col = Physics2D.OverlapCircle(pimpleContainer.GetChild(i).position, 0.2f, cucumberLayerMask);
+            Collider2D col = Physics2D.OverlapCircle(pimpleContainer.GetChild(i).position, 0.2f);
 
             if (col)
             {
-                return false;
+                MaskObject maskObject = col.GetComponent<MaskObject>();
+                if (maskObject)
+                {
+                    var maskObjectType = maskObject.itemType;
+                    if (maskObject.itemType == MaskItemType.AcnePatch)
+                    {
+                        pimpleContainer.GetChild(i).gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        isLegit = false;
+                    }
+                }
             }
         }
 
-        return true;
+        return isLegit;
     }    
 
     public bool CheckAllFrecklesLegit()
@@ -99,7 +113,14 @@ public class FaceController : Singleton<FaceController>
 
     public void Angry()
     {
-        animator.Play("Angry");   
+        StartCoroutine(Cor_CallLose()); 
+    }
+
+    IEnumerator Cor_CallLose()
+    {
+        yield return new WaitForSeconds(1);
+        animator.Play("Angry");
+        //TODO: Call lose in system
     }
 
     public void Happy()

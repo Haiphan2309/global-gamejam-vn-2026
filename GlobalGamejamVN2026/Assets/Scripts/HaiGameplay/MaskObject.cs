@@ -8,8 +8,11 @@ public class MaskObject : InteractableObject
 {
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem dropVfx;
-    public bool isInFace = false;
-    public bool isOverlapMaskObject = false;
+    bool isInFace = false;
+    bool isOverlapMaskObject = false;
+
+    public MaskItemType itemType;
+
     public enum State
     {
         IDLE,
@@ -56,12 +59,6 @@ public class MaskObject : InteractableObject
         }
     }
 
-    IEnumerator Cor_ChangeState(float averageSec, State newState)
-    {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(averageSec - 2.0f, averageSec + 2.0f));
-        SetState(newState);
-    }
-
     /// <summary>
     /// /////////////////////////////////////////////////////////////////
     /// </summary>
@@ -83,7 +80,6 @@ public class MaskObject : InteractableObject
     {
         base.OnReceiveActionFromPlayer(touchPos);
 
-        // Báo cho Manager biết: "Tôi đang bị người chơi bế đi rồi, hãy spawn cái mới đi"
         if (MaskItemConveyorManager.Instance != null)
         {
             MaskItemConveyorManager.Instance.NotifyItemPickedUp(this.gameObject);
@@ -120,6 +116,12 @@ public class MaskObject : InteractableObject
         }
         else
         {
+            if (itemType == MaskItemType.ChiliSlice && isInFace)
+            {
+                FaceController.Instance.Angry();
+                return;
+            }
+
             animator.Play("Idle");
             base.OnDrop(dragPos);
             dropVfx.Play();

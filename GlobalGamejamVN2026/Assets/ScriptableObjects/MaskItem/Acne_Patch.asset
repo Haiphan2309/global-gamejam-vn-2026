@@ -18,14 +18,6 @@ MonoBehaviour:
   baseScorePerUnit: 0
   variants:
   - name: Acne 1
-    prefab: {fileID: 4515756720990421816, guid: 9aeeca51b739e574eb4a812e82aa178d, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
-    spawnWeight: 30
-  - name: Acne 2
-    prefab: {fileID: 2133676388722641069, guid: ab2cd0302005c864093260a071ae33b7, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
-    spawnWeight: 30
-  - name: Acne 3
-    prefab: {fileID: 5745667289429643516, guid: b94da03eefa42b840b0d906d20eff455, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: ad3fa56342db7c7458432a6ec38ffc98, type: 3}
     uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
     spawnWeight: 30

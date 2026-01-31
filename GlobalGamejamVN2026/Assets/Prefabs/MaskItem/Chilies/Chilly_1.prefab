@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: e1bfc1d8ff5e44f4485f993c48013925, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c48e77561c78c24990ea6e453967284, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: e1bfc1d8ff5e44f4485f993c48013925, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c48e77561c78c24990ea6e453967284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5070,7 +5070,7 @@ GameObject:
   - component: {fileID: 8038085325013954751}
   - component: {fileID: 1175358344959671260}
   m_Layer: 6
-  m_Name: Cucumber_2
+  m_Name: Chilly_1
   m_TagString: Cucumber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5121,7 +5121,7 @@ MonoBehaviour:
   m_interactPriority: 0
   animator: {fileID: 5874314709469227160}
   dropVfx: {fileID: 7677999645967685475}
-  itemType: 0
+  itemType: 2
   m_state: 0
 --- !u!50 &8038085325013954751
 Rigidbody2D:
@@ -5194,17 +5194,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.97667265, y: 0.27280378}
-      - {x: 0.8517966, y: 0.5490675}
-      - {x: -0.06315327, y: 0.66622496}
-      - {x: -0.6893425, y: 0.79264593}
-      - {x: -0.99779224, y: 0.5615616}
-      - {x: -1.06878, y: 0.17682123}
-      - {x: -0.78051907, y: -0.3499486}
-      - {x: -0.3533606, y: -0.66258085}
-      - {x: 0.042359352, y: -0.9677186}
-      - {x: 0.24690402, y: -0.9476018}
-      - {x: 0.65744305, y: -0.33702165}
+    - - {x: 4.773513, y: -0.0013062954}
+      - {x: 4.4444137, y: 2.411075}
+      - {x: 3.479588, y: 3.6626217}
+      - {x: 1.8689808, y: 4.173756}
+      - {x: -0.008751988, y: 5.708791}
+      - {x: -4.16039, y: 4.693302}
+      - {x: -4.7551355, y: 2.6664267}
+      - {x: -4.9612036, y: -0.10276878}
+      - {x: -3.8104568, y: -1.265177}
+      - {x: -3.2568111, y: -4.1867523}
+      - {x: 0.016537666, y: -5.386427}
+      - {x: 3.1411815, y: -3.706196}
+      - {x: 3.5348613, y: -1.6821592}
   m_UseDelaunayMesh: 0
 --- !u!1 &8986393887406652353
 GameObject:

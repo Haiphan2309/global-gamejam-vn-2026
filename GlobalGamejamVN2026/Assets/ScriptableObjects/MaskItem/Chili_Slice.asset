@@ -18,14 +18,10 @@ MonoBehaviour:
   baseScorePerUnit: 0
   variants:
   - name: Chili 1
-    prefab: {fileID: 7570912486749198120, guid: d69e1c429d17b904b8341cb49622824d, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: 272e4d87f7e79a440ae5e59cdd16d06e, type: 3}
+    uiIcon: {fileID: 21300000, guid: 0c48e77561c78c24990ea6e453967284, type: 3}
     spawnWeight: 30
   - name: Chili 2
-    prefab: {fileID: 4722837704783202955, guid: bb4198522647e454b88b72c1cc33d4fe, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
-    spawnWeight: 30
-  - name: Chili 3
-    prefab: {fileID: 6068873010574758985, guid: cd5d3ea2459b0954cbb306903dfea058, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: defabeaff1348cf4683250985e37d30b, type: 3}
+    uiIcon: {fileID: 21300000, guid: b493bdc664ab9e0408f71fc9ca4e4b30, type: 3}
     spawnWeight: 30
