@@ -12,6 +12,8 @@ public class MaskObject : InteractableObject
     bool isInFace = false;
     bool isOverlapMaskObject = false;
 
+    public bool isTargeted = false;
+
     public MaskItemType itemType;
 
     public enum State
@@ -77,6 +79,11 @@ public class MaskObject : InteractableObject
         UpdateState();
     }
 
+    public void GetEaten()
+    {
+        Destroy(gameObject);
+    }
+
     public override void OnReceiveActionFromPlayer(Vector2 touchPos)
     {
         base.OnReceiveActionFromPlayer(touchPos);
@@ -91,6 +98,18 @@ public class MaskObject : InteractableObject
 
     public override bool IsAllowInteract()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        int flyLayerMask = 1 << LayerMask.NameToLayer("Fly"); 
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0f, flyLayerMask);
+
+        if (hit.collider != null)
+        {
+            return false;
+        }
+
         return true;
     }
 
