@@ -17,15 +17,19 @@ public class FaceController : Singleton<FaceController>
     [SerializeField] private float maxEyeOffset;
 
     Vector2 eye1OriginLocalPos, eye2OriginLocalPos;
+    
+    public int numberOfPimple = 2;
 
     // Start is called before the first frame update
 
-    public int testResult;
     public bool isPimpleLegit, isFreckleLegit;
     void Start()
     {
         transform.position = new Vector2(0.94f, -10f);
-        transform.DOMoveY(0, 1f).SetDelay(1f);
+        transform.DOMoveY(0, 1f).SetDelay(1f).OnComplete(() =>
+        {
+            MaskItemConveyorManager.Instance.OnCustomerArrived(numberOfPimple, numberOfPimple * 5);
+        });
 
         eye1OriginLocalPos = eye1.localPosition;
         eye2OriginLocalPos = eye2.localPosition;
@@ -36,7 +40,6 @@ public class FaceController : Singleton<FaceController>
     // Update is called once per frame
     void Update()
     {
-        testResult = CalculateResult();
         isPimpleLegit = CheckPimpleLegit();
         isFreckleLegit = CheckAllFrecklesLegit();
 
@@ -56,7 +59,7 @@ public class FaceController : Singleton<FaceController>
     public int CalculateResult()
     {
         int overlapPointCount = 0;
-        for(int i = 0; i< dotContainer.childCount; i++)
+        for (int i = 0; i < dotContainer.childCount; i++)
         {
             Collider2D col = Physics2D.OverlapCircle(dotContainer.GetChild(i).position, 0.2f, cucumberLayerMask);
 
@@ -106,7 +109,7 @@ public class FaceController : Singleton<FaceController>
         }
 
         return isLegit;
-    }    
+    }
 
     public bool CheckAllFrecklesLegit()
     {
@@ -125,7 +128,7 @@ public class FaceController : Singleton<FaceController>
 
     public void Angry()
     {
-        StartCoroutine(Cor_CallLose()); 
+        StartCoroutine(Cor_CallLose());
     }
 
     IEnumerator Cor_CallLose()
@@ -146,7 +149,7 @@ public class FaceController : Singleton<FaceController>
 
     void RemoveAllMaskObject()
     {
-        for(int i=0; i<maskObjectContainer.childCount; i++)
+        for (int i = 0; i < maskObjectContainer.childCount; i++)
         {
             MaskObject obj = maskObjectContainer.GetChild(i).GetComponent<MaskObject>();
             obj.Disappear();
