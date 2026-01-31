@@ -33,8 +33,8 @@ public class FaceController : Singleton<FaceController>
 
     void Start()
     {
-        transform.position = new Vector2(0.94f, dotweenYTarget);
-        transform.DOMoveY(0, 1f).SetDelay(1f).OnComplete(() =>
+        transform.position = new Vector2(0.94f, -10f);
+        transform.DOMoveY(dotweenYTarget, 1f).SetDelay(1f).OnComplete(() =>
         {
             GamePlayManager.Instance.StartLevel();
             MaskItemConveyorManager.Instance.OnCustomerArrived(numberOfPimple, numberOfPimple * 5);
@@ -167,7 +167,7 @@ public class FaceController : Singleton<FaceController>
         yield return new WaitForSeconds(1);
         animator.Play("Angry");
         RemoveAllMaskObject();
-        //TODO: Call lose instant in system
+        GamePlayManager.Instance.GameLose();
     }
 
     public void Happy()

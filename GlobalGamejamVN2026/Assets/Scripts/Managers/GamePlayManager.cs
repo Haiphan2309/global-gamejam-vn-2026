@@ -73,7 +73,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         }
     }
 
-    private void GameWin()
+    public void GameWin()
     {
         m_isPlaying = false;
         Debug.Log("YOU WIN!");
@@ -81,7 +81,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         Game_End.Instance.ShowScoreWin(m_currentPercent);
     }
 
-    private void GameLose()
+    public void GameLose()
     {
         m_isPlaying = false;
         Debug.Log("GAME OVER!");
@@ -90,6 +90,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         {
             Debug.Log("A");
         }
+        m_currentPercent = FaceController.Instance.CalculateResult();
         Game_End.Instance.ShowScoreLose(m_currentPercent);
     }
 
