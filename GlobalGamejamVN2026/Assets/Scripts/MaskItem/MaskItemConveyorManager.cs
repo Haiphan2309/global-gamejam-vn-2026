@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
 
     private void Start()
     {
-        OnCustomerArrived(3,15);
+        OnCustomerArrived(3, 15);
     }
 
     public void RegisterFilledItem(MaskObject item)
@@ -63,8 +64,8 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
         if (_nextItemBuffer.prefab != null)
         {
             _currentObjectOnTable = Instantiate(_nextItemBuffer.prefab, tableSpawnPoint.position, Quaternion.identity);
-            
-            _currentObjectOnTable.transform.SetParent(tableSpawnPoint); 
+            _currentObjectOnTable.transform.SetParent(tableSpawnPoint);
+            _currentObjectOnTable.transform.DOMoveX(tableSpawnPoint.position.x + 3, 1.0f);
         }
 
         _nextItemBuffer = spawner.GetNextItemData();
