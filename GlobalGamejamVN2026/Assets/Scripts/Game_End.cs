@@ -1,0 +1,85 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+
+using UnityEngine.SocialPlatforms.Impl;
+
+public class Game_End : MonoBehaviour
+{
+    [SerializeField] private TMP_Text resultText;
+
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text scoreText2;
+    [SerializeField] private float timeSet = 5f;
+    
+
+    void OnEnable()
+    {
+        if (GamePlayManager.Instance == null)
+            return;
+
+        if(GamePlayManager.Instance.OnGameWin != null) GamePlayManager.Instance.OnGameWin += ShowScoreWin;
+        if(GamePlayManager.Instance.OnGameLose != null) GamePlayManager.Instance.OnGameLose += ShowScoreLose;
+
+
+    }
+
+    void OnDisable()
+    {
+        if (GamePlayManager.Instance == null)
+            return;
+
+        if(GamePlayManager.Instance.OnGameWin != null) GamePlayManager.Instance.OnGameWin -= ShowScoreWin;
+        if(GamePlayManager.Instance.OnGameLose != null) GamePlayManager.Instance.OnGameLose -= ShowScoreLose;
+    }
+
+    public void ShowScoreWin(int scoreValue)
+    {
+        resultText.text = "YOU WIN!";
+        StartCoroutine(ScoreRoutine(scoreValue));
+    }
+
+    public void ShowScoreLose(int scoreValue)
+    {
+        resultText.text = "TRY AGAIN!";
+        StartCoroutine(ScoreRoutine(scoreValue));
+    }
+
+    IEnumerator ScoreRoutine(int scoreValue)
+    {
+        int countFPS = 30;  // số lần cập nhật trong 1 giây
+        float time = 0f;
+        WaitForSeconds wait = new WaitForSeconds(1f / countFPS);
+
+        while (time < timeSet)
+        {
+            int score = Random.Range(0, 99);
+            scoreText.text = score.ToString("D2");
+            scoreText2.text = score.ToString("D2");
+
+            time += 1f / countFPS;   // tăng đúng bằng khoảng chờ
+            yield return wait;
+        }
+
+        // Hiện số cuối cùng chính xác
+        scoreText.text = scoreValue.ToString("D2");
+        scoreText2.text = scoreValue.ToString("D2");
+
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+}
