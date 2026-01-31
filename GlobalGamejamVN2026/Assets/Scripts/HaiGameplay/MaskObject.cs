@@ -79,6 +79,17 @@ public class MaskObject : InteractableObject
         UpdateState();
     }
 
+    public override void OnReceiveActionFromPlayer(Vector2 touchPos)
+    {
+        base.OnReceiveActionFromPlayer(touchPos);
+
+        // Báo cho Manager biết: "Tôi đang bị người chơi bế đi rồi, hãy spawn cái mới đi"
+        if (MaskItemConveyorManager.Instance != null)
+        {
+            MaskItemConveyorManager.Instance.NotifyItemPickedUp(this.gameObject);
+        }
+    }
+
     public override bool IsAllowInteract()
     {
         return true;
@@ -112,6 +123,10 @@ public class MaskObject : InteractableObject
             animator.Play("Idle");
             base.OnDrop(dragPos);
             dropVfx.Play();
+            if (MaskItemConveyorManager.Instance != null)
+            {
+                MaskItemConveyorManager.Instance.RegisterFilledItem(this);
+            }
         }
     }
 
