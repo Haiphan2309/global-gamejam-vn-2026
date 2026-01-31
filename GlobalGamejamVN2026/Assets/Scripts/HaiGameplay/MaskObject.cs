@@ -110,6 +110,7 @@ public class MaskObject : InteractableObject
 
     override public void OnDrop(Vector2 dragPos)
     {
+        SetState(State.IDLE);
         if (!isInFace || isOverlapMaskObject)
         {
             Disappear();
