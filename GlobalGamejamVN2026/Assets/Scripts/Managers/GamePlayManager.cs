@@ -16,8 +16,8 @@ public class GamePlayManager : Singleton<GamePlayManager>
     [SerializeField] private GameObject losePanel;
 
     [Header("Events")]
-    public Action OnGameWin;
-    public Action OnGameLose;
+    public Action<int> OnGameWin;
+    public Action<int> OnGameLose;
     public Action<float, float> OnTimeChanged;
 
     // Runtime Data
@@ -80,7 +80,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_isPlaying = false;
         Debug.Log("YOU WIN!");
         if (winPanel) winPanel.SetActive(true);
-        OnGameWin?.Invoke();
+        OnGameWin?.Invoke(m_currentPercent);
     }
 
     private void GameLose()
@@ -88,7 +88,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_isPlaying = false;
         Debug.Log("GAME OVER!");
         if (losePanel) losePanel.SetActive(true);
-        OnGameLose?.Invoke();
+        OnGameLose?.Invoke(m_currentPercent);
     }
 
     private void UpdateUI()
