@@ -21,11 +21,6 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
 
     public List<MaskObject> filledItems = new();
 
-    private void Start()
-    {
-        OnCustomerArrived(3, 15);
-    }
-
     public void RegisterFilledItem(MaskObject item)
     {
         if (!filledItems.Contains(item))
