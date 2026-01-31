@@ -33,7 +33,7 @@ namespace Gameplay
         {
             if (outline)
             {
-                outline.SetThickness(10);
+                outline.SetThickness(15);
             }
         }
 
