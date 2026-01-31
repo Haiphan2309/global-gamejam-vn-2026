@@ -18,14 +18,14 @@ MonoBehaviour:
   baseScorePerUnit: 0
   variants:
   - name: Cucumber 1
-    prefab: {fileID: 5921489751692735656, guid: 5eb840d52f7c60040938a91a11fe5c9d, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: 22c43bde79b89ed41b022258e02ed836, type: 3}
     uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
     spawnWeight: 30
   - name: Cucumber 2
-    prefab: {fileID: 2244420610071648868, guid: caf32cfedb7764640b6f3f028858419f, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: 006ee3b79096e4c4697b8fc00b796e00, type: 3}
     uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
     spawnWeight: 30
   - name: Cucumber 3
-    prefab: {fileID: 2268126109213329377, guid: 2157bdc3cf3829f4491fcf6f26f2104d, type: 3}
+    prefab: {fileID: 8489682005190587982, guid: 452e8cf76d6968749a3cadc4c87ef983, type: 3}
     uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
     spawnWeight: 30
