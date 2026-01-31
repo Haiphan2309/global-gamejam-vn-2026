@@ -9,6 +9,7 @@ TagManager:
   - Cucumber
   - CucumberContainer
   - FlySpawnPos
+  - Nose
   layers:
   - Default
   - TransparentFX

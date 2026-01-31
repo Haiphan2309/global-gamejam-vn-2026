@@ -60,6 +60,11 @@ namespace Gameplay
 
             foreach (var col in cols)
             {
+                if (col.CompareTag("Nose"))
+                {
+                    FaceController.Instance.PressOnNose();
+                }
+
                 var interactable = col.GetComponentInParent<InteractableObject>();
                 if (interactable == null || !interactable.IsAllowInteract())
                 {

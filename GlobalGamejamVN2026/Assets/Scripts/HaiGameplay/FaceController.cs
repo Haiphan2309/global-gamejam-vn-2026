@@ -17,12 +17,18 @@ public class FaceController : Singleton<FaceController>
     [SerializeField] private float maxEyeOffset;
 
     Vector2 eye1OriginLocalPos, eye2OriginLocalPos;
+
+    [SerializeField] private bool isCanSneeze;
+    [SerializeField] private float sneezeTimesptamp;
     
     public int numberOfPimple = 2;
 
     // Start is called before the first frame update
 
     public bool isPimpleLegit, isFreckleLegit;
+    Coroutine sneezeCor;
+    [SerializeField] private GameObject stopSneezeVfx;
+
     void Start()
     {
         transform.position = new Vector2(0.94f, -10f);
@@ -35,6 +41,19 @@ public class FaceController : Singleton<FaceController>
         eye2OriginLocalPos = eye2.localPosition;
 
         animator.Play("Idle");
+
+        if (isCanSneeze)
+        {
+            sneezeCor = StartCoroutine(Cor_Sneeze());
+        }
+    }
+
+    IEnumerator Cor_Sneeze()
+    {
+        yield return new WaitForSeconds(sneezeTimesptamp);
+        animator.Play("Sneeze");
+        yield return new WaitForSeconds(2);
+        RemoveAllMaskObject();
     }
 
     // Update is called once per frame
@@ -54,6 +73,15 @@ public class FaceController : Singleton<FaceController>
         Vector3 dir2 = mouseWorld - eye2.position;
         Vector2 offset2 = Vector2.ClampMagnitude(dir2, maxEyeOffset);
         eye2.localPosition = eye2OriginLocalPos + offset2;
+
+
+    }
+
+    public void PressOnNose()
+    {
+        stopSneezeVfx.SetActive(true);
+        animator.Play("Idle");
+        StopCoroutine(sneezeCor);
     }
 
     public int CalculateResult()

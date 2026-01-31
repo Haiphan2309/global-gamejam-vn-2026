@@ -19,5 +19,5 @@ MonoBehaviour:
   variants:
   - name: Acne 1
     prefab: {fileID: 8489682005190587982, guid: ad3fa56342db7c7458432a6ec38ffc98, type: 3}
-    uiIcon: {fileID: -2413806693520163455, guid: 7e0ff715f40ad9f44953f3c2eefd96b5, type: 3}
+    uiIcon: {fileID: 21300000, guid: 2d37396c0fd97c7498d37db2d9d02656, type: 3}
     spawnWeight: 30
