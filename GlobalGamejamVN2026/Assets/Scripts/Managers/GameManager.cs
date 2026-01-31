@@ -50,6 +50,7 @@ namespace GDC.Managers
         private void Start()
         {
             SaveLoadManager.Instance.Load();
+            PlayMainMenuBGM();
         }
         void OnApplicationQuit()
         {
@@ -67,6 +68,11 @@ namespace GDC.Managers
         public void PlayMusic(SoundID soundID, float volume = 1f)
         {
             AudioSource = SoundManager.Instance.PlayMusic(soundID, volume);
+        }
+        
+        public void PlayMainMenuBGM()
+        {
+            SoundManager.Instance.PlayMainMenuBGM();
         }
         void LoadSceneWithTransition(SceneType sceneType, bool isTransitionOut, TransitionType transitionType, SoundType soundType, System.Action cb = null)
         {
