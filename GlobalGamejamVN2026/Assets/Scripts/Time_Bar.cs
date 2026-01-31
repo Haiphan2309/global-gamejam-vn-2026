@@ -13,14 +13,6 @@ public class Time_Bar : MonoBehaviour
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text timeText2;
 
-    void OnEnable()
-    {
-        if (GamePlayManager.Instance == null)
-            return;
-
-        GamePlayManager.Instance.OnTimeChanged += HandleTimeChanged;
-    }
-
     void OnDisable()
     {
         if (GamePlayManager.Instance == null)
@@ -30,8 +22,18 @@ public class Time_Bar : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        if (GamePlayManager.Instance == null)
+        {
+            return;
+        }
+        GamePlayManager.Instance.OnTimeChanged += HandleTimeChanged;
+    }
+
     private void HandleTimeChanged(float currentTime, float maxTime)
     {
+        Debug.Log($"HandleTimeChanged {currentTime} {maxTime}");
         float percent = Mathf.Clamp01(currentTime / maxTime);
         timeFill.fillAmount = percent;
         TimeSpan timeSpan = TimeSpan.FromSeconds(maxTime - currentTime);
