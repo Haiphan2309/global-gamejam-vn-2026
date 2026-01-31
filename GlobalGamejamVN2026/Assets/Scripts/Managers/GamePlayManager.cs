@@ -12,8 +12,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     [Header("UI References")]
     [SerializeField] private Time_Bar timeBar;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject winPanel;
-    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject endPanel;
 
     [Header("Events")]
     public Action<int> OnGameWin;
@@ -45,8 +44,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
         m_currentPercent = 0;
         m_isPlaying = true;
 
-        if (winPanel) winPanel.SetActive(false);
-        if (losePanel) losePanel.SetActive(false);
+        if (endPanel) endPanel.SetActive(false);
         UpdateUI();
     }
 
@@ -79,7 +77,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         m_isPlaying = false;
         Debug.Log("YOU WIN!");
-        if (winPanel) winPanel.SetActive(true);
+        if (endPanel) endPanel.SetActive(true);
         OnGameWin?.Invoke(m_currentPercent);
     }
 
@@ -87,7 +85,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         m_isPlaying = false;
         Debug.Log("GAME OVER!");
-        if (losePanel) losePanel.SetActive(true);
+        if (endPanel) endPanel.SetActive(true);
         OnGameLose?.Invoke(m_currentPercent);
     }
 

@@ -169,18 +169,18 @@ PrefabInstance:
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 205161883}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowLevelMenu
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
+      value: Game_End, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6213,18 +6213,18 @@ PrefabInstance:
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 205161883}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowLevelMenu
+      value: NextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
+      value: Game_End, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7568,18 +7568,18 @@ PrefabInstance:
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 205161883}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowLevelMenu
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
+      value: Game_End, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3413211158973400517, guid: ada391047ae5c76459a691817daa3715, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

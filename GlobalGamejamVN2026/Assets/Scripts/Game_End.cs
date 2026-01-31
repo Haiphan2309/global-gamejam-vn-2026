@@ -9,6 +9,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Game_End : MonoBehaviour
 {
     [SerializeField] private TMP_Text resultText;
+    [SerializeField] private TMP_Text resultText_shadow;
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text scoreText2;
@@ -20,8 +21,8 @@ public class Game_End : MonoBehaviour
         if (GamePlayManager.Instance == null)
             return;
 
-        if(GamePlayManager.Instance.OnGameWin != null) GamePlayManager.Instance.OnGameWin += ShowScoreWin;
-        if(GamePlayManager.Instance.OnGameLose != null) GamePlayManager.Instance.OnGameLose += ShowScoreLose;
+        GamePlayManager.Instance.OnGameWin += ShowScoreWin;
+        GamePlayManager.Instance.OnGameLose += ShowScoreLose;
 
 
     }
@@ -31,19 +32,23 @@ public class Game_End : MonoBehaviour
         if (GamePlayManager.Instance == null)
             return;
 
-        if(GamePlayManager.Instance.OnGameWin != null) GamePlayManager.Instance.OnGameWin -= ShowScoreWin;
-        if(GamePlayManager.Instance.OnGameLose != null) GamePlayManager.Instance.OnGameLose -= ShowScoreLose;
+        GamePlayManager.Instance.OnGameWin -= ShowScoreWin;
+        GamePlayManager.Instance.OnGameLose -= ShowScoreLose;
     }
 
     public void ShowScoreWin(int scoreValue)
     {
+        Debug.Log("Show Score Win called with score: " + scoreValue);
         resultText.text = "YOU WIN!";
+        StopAllCoroutines();
         StartCoroutine(ScoreRoutine(scoreValue));
     }
 
-    public void ShowScoreLose(int scoreValue)
+    private void ShowScoreLose(int scoreValue)
     {
+        Debug.Log("Show Score Lose called with score: " + scoreValue);
         resultText.text = "TRY AGAIN!";
+        StopAllCoroutines();
         StartCoroutine(ScoreRoutine(scoreValue));
     }
 
