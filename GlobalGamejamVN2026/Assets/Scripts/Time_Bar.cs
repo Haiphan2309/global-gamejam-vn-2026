@@ -33,7 +33,6 @@ public class Time_Bar : MonoBehaviour
 
     private void HandleTimeChanged(float currentTime, float maxTime)
     {
-        Debug.Log($"HandleTimeChanged {currentTime} {maxTime}");
         float percent = Mathf.Clamp01(currentTime / maxTime);
         timeFill.fillAmount = percent;
         TimeSpan timeSpan = TimeSpan.FromSeconds(maxTime - currentTime);

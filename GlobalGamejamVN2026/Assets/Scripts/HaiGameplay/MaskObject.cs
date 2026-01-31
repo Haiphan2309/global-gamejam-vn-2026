@@ -115,14 +115,12 @@ public class MaskObject : InteractableObject
 
     public override void OnHover()
     {
-        Debug.Log("On Hover");
         base.OnHover();
     }
 
     override public void OnDrag(Vector2 dragPos)
     {
         base.OnDrag(dragPos);
-        Debug.Log(animator);
         animator.Play("Drag");
 
         SetState(State.DRAGGED);
@@ -147,11 +145,6 @@ public class MaskObject : InteractableObject
             {
                 FaceController.Instance.Angry();
                 return;
-            }
-
-            if (MaskItemConveyorManager.Instance != null)
-            {
-                MaskItemConveyorManager.Instance.RegisterFilledItem(this);
             }
 
             if (isInFace)
