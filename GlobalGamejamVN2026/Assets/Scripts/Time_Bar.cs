@@ -15,6 +15,12 @@ public class Time_Bar : MonoBehaviour
     [SerializeField] private float timeSet;
     public void Start()
     {
+        SetupTimeBar(60);
+    }
+
+    public void SetupTimeBar(float totalTime)
+    {
+        timeSet = totalTime;
         timeBar.SetActive(true);
         StartCoroutine(TimeRoutine());
     }
