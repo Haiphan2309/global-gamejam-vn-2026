@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7004391, y: 1.8630782, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 220209036112617237}
@@ -5068,7 +5068,7 @@ GameObject:
   - component: {fileID: 2402214652683221085}
   - component: {fileID: 6752958989052600141}
   - component: {fileID: 8038085325013954751}
-  - component: {fileID: 1175358344959671260}
+  - component: {fileID: 7142586938756171422}
   m_Layer: 6
   m_Name: Chilly_2
   m_TagString: Cucumber
@@ -5086,7 +5086,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.25, y: 3.81, z: -0.07309389}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 220209036112617237}
@@ -5150,7 +5150,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &1175358344959671260
+--- !u!60 &7142586938756171422
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5194,18 +5194,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.8594909, y: 5.2369256}
-      - {x: -2.026537, y: 5.4115863}
-      - {x: -3.0252118, y: 3.460062}
-      - {x: -5.1730547, y: 1.6720245}
-      - {x: -4.992132, y: -1.3483548}
-      - {x: -3.6795225, y: -4.527537}
-      - {x: -0.7872495, y: -6.0615816}
-      - {x: 1.4218788, y: -5.900186}
-      - {x: 3.0970848, y: -3.6978517}
-      - {x: 4.7970347, y: -2.1702855}
-      - {x: 4.809785, y: 0.2880373}
-      - {x: 3.643827, y: 2.9352999}
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.07502508, y: -0.99231505}
+      - {x: 0.45447743, y: -0.5923915}
+      - {x: 0.9114113, y: -0.40304518}
+      - {x: 0.8344116, y: 0.2423634}
   m_UseDelaunayMesh: 0
 --- !u!1 &8986393887406652353
 GameObject:

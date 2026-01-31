@@ -6,6 +6,7 @@ public class FaceController : Singleton<FaceController>
     [SerializeField] private Transform dotContainer;
     [SerializeField] private Transform pimpleContainer;
     [SerializeField] private Transform freckleContainer;
+    public Transform maskObjectContainer;
     [SerializeField] LayerMask cucumberLayerMask;
     [SerializeField] Animator animator;
 
@@ -73,21 +74,27 @@ public class FaceController : Singleton<FaceController>
                 continue;
             }
 
-            Collider2D col = Physics2D.OverlapCircle(pimpleContainer.GetChild(i).position, 0.2f);
+            Collider2D[] cols = Physics2D.OverlapCircleAll(pimpleContainer.GetChild(i).position, 0.2f);
 
-            if (col)
+            if (cols != null)
             {
-                MaskObject maskObject = col.GetComponent<MaskObject>();
-                if (maskObject)
+                foreach (var col in cols)
                 {
-                    var maskObjectType = maskObject.itemType;
-                    if (maskObject.itemType == MaskItemType.AcnePatch)
+                    if (col)
                     {
-                        pimpleContainer.GetChild(i).gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        isLegit = false;
+                        MaskObject maskObject = col.GetComponent<MaskObject>();
+                        if (maskObject)
+                        {
+                            var maskObjectType = maskObject.itemType;
+                            if (maskObject.itemType == MaskItemType.AcnePatch)
+                            {
+                                pimpleContainer.GetChild(i).gameObject.SetActive(false);
+                            }
+                            else
+                            {
+                                isLegit = false;
+                            }
+                        }
                     }
                 }
             }
@@ -120,11 +127,22 @@ public class FaceController : Singleton<FaceController>
     {
         yield return new WaitForSeconds(1);
         animator.Play("Angry");
+        RemoveAllMaskObject();
         //TODO: Call lose in system
     }
 
     public void Happy()
     {
         animator.Play("Angry");
+        RemoveAllMaskObject();
+    }
+
+    void RemoveAllMaskObject()
+    {
+        for(int i=0; i<maskObjectContainer.childCount; i++)
+        {
+            MaskObject obj = maskObjectContainer.GetChild(i).GetComponent<MaskObject>();
+            obj.Disappear();
+        }
     }
 }

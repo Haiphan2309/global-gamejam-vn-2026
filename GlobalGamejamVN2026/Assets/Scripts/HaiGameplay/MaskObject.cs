@@ -116,23 +116,28 @@ public class MaskObject : InteractableObject
         }
         else
         {
+            animator.Play("Idle");
+            base.OnDrop(dragPos);
+            dropVfx.Play();
             if (itemType == MaskItemType.ChiliSlice && isInFace)
             {
                 FaceController.Instance.Angry();
                 return;
             }
 
-            animator.Play("Idle");
-            base.OnDrop(dragPos);
-            dropVfx.Play();
             if (MaskItemConveyorManager.Instance != null)
             {
                 MaskItemConveyorManager.Instance.RegisterFilledItem(this);
             }
+
+            if (isInFace)
+            {
+                transform.SetParent(FaceController.Instance.maskObjectContainer);
+            }
         }
     }
 
-    void Disappear()
+    public void Disappear()
     {
         animator.Play("Disappear");
         Destroy(gameObject, 1);

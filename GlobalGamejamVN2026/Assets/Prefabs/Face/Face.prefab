@@ -7867,6 +7867,7 @@ Transform:
   - {fileID: 8660362022120280335}
   - {fileID: 4606388687647487145}
   - {fileID: 8935894823977819445}
+  - {fileID: 472319664847811191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3649377157748253044
@@ -7884,6 +7885,7 @@ MonoBehaviour:
   dotContainer: {fileID: 8660362022120280335}
   pimpleContainer: {fileID: 4606388687647487145}
   freckleContainer: {fileID: 8935894823977819445}
+  maskObjectContainer: {fileID: 472319664847811191}
   cucumberLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -8673,6 +8675,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7314225825866342511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472319664847811191}
+  m_Layer: 0
+  m_Name: CucumberContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472319664847811191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314225825866342511}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7305464416065554628}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7355358831339148355
 GameObject:
   m_ObjectHideFlags: 0
