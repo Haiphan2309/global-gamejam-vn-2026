@@ -86,7 +86,7 @@ public class FaceController : Singleton<FaceController>
                         if (maskObject)
                         {
                             var maskObjectType = maskObject.itemType;
-                            if (maskObject.itemType == MaskItemType.AcnePatch)
+                            if (maskObject.itemType == MaskItemType.AcnePatch && maskObject.GetState() == MaskObject.State.IDLE)
                             {
                                 pimpleContainer.GetChild(i).gameObject.SetActive(false);
                             }
