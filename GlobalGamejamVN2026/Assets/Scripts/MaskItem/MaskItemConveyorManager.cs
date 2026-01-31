@@ -14,7 +14,6 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
 
     [Header("Area 3: Next Item UI")]
     public Image nextItemImage;
-    public TextMeshProUGUI nextItemText;
 
     private MaskItemVariant _nextItemBuffer;
     private GameObject _currentObjectOnTable;
@@ -73,7 +72,6 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
         if (_nextItemBuffer != null && _nextItemBuffer.uiIcon != null)
         {
             nextItemImage.sprite = _nextItemBuffer.uiIcon;
-            nextItemText.text = _nextItemBuffer.name;
             nextItemImage.enabled = true;
         }
         else

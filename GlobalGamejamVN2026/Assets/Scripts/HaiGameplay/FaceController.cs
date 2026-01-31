@@ -34,6 +34,7 @@ public class FaceController : Singleton<FaceController>
         transform.position = new Vector2(0.94f, -10f);
         transform.DOMoveY(0, 1f).SetDelay(1f).OnComplete(() =>
         {
+            GamePlayManager.Instance.StartLevel();
             MaskItemConveyorManager.Instance.OnCustomerArrived(numberOfPimple, numberOfPimple * 5);
         });
 

@@ -26,7 +26,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
 
     private void Start()
     {
-        StartLevel();
+        SoundManager.Instance.PlayGamePlayBGM();
     }
 
     private void Update()
@@ -38,7 +38,6 @@ public class GamePlayManager : Singleton<GamePlayManager>
     }
     public void StartLevel()
     {
-        SoundManager.Instance.PlayGamePlayBGM();
         m_currentTime = 0;
         OnTimeChanged?.Invoke(m_currentTime,levelTime);
         m_currentPercent = 0;
