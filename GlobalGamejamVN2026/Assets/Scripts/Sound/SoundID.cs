@@ -42,5 +42,6 @@ namespace AudioPlayer
         SFX_WIND,
         SFX_PICK,
         SFX_DROP,
+        SFX_SNEEZE,
     }
 }

@@ -23045,6 +23045,7 @@ MonoBehaviour:
   isPimpleLegit: 0
   isFreckleLegit: 0
   stopSneezeVfx: {fileID: 3281859999645585864}
+  dotweenYTarget: -10
 --- !u!60 &7448269284149373812
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23471,6 +23472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6054834484112512163}
   - component: {fileID: 5197668320255437955}
+  - component: {fileID: 7976443560415190322}
   m_Layer: 7
   m_Name: Graphic
   m_TagString: Untagged
@@ -23519,6 +23521,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7976443560415190322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686007557771331887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbf48c36569caf42bd9bfca017cfa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3649377157748253044}
+        m_TargetAssemblyTypeName: FaceController, Assembly-CSharp
+        m_MethodName: PlaySneezeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6947919394156038298
 GameObject:
   m_ObjectHideFlags: 0

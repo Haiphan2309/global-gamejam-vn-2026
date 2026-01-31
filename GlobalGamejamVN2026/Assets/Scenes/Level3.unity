@@ -1855,6 +1855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fly Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1725813758374319261, guid: 5ba371c3eb3d22442b4cfaf8c84c718a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5897185163836732146, guid: 5ba371c3eb3d22442b4cfaf8c84c718a, type: 3}
       propertyPath: respawnDelay
       value: 4

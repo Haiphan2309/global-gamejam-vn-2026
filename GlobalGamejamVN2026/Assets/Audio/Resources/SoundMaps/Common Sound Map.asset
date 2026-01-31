@@ -54,3 +54,6 @@ MonoBehaviour:
   - name: SFX_DROP
     Id: 513
     Data: {fileID: 11400000, guid: 5df43622a5942a643aa16c065c23a51e, type: 2}
+  - name: SFX_SNEEZE
+    Id: 514
+    Data: {fileID: 11400000, guid: c2542428d695a9e4fa59bdd9a87eb16b, type: 2}

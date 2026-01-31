@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GDC.Managers;
 using GDC.Utils;
 using System.Collections;
 using UnityEngine;
@@ -52,6 +53,10 @@ public class FaceController : Singleton<FaceController>
         }
     }
 
+    public void PlaySneezeSound()
+    {
+        SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_SNEEZE);
+    }
     IEnumerator Cor_Sneeze()
     {
         yield return new WaitForSeconds(sneezeTimesptamp);
