@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,16 +18,19 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
     private MaskItemVariant _nextItemBuffer;
     private GameObject _currentObjectOnTable;
 
+    public List<MaskObject> filledItems = new();
+
     private void Start()
     {
         OnCustomerArrived(3,15);
     }
 
-    private void Update()
+    public void RegisterFilledItem(MaskObject item)
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (!filledItems.Contains(item))
         {
-            RemoveCurrentAndSpawnNext();
+            filledItems.Add(item);
+            // Check win condition ở đây nếu cần
         }
     }
 
@@ -38,23 +42,29 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
         SpawnNextItemToTable();
     }
 
-    public void RemoveCurrentAndSpawnNext()
+    public void NotifyItemPickedUp(GameObject itemPicked)
     {
-        if (_currentObjectOnTable != null)
+        // Kiểm tra xem item đang kéo có đúng là item đang nằm trên bàn không
+        if (_currentObjectOnTable == itemPicked)
         {
-            Destroy(_currentObjectOnTable);
-        }
+            // 1. Tách item này ra (quên nó đi), để nó trở thành vật thể tự do
+            _currentObjectOnTable = null;
 
-        SpawnNextItemToTable();
+            // 2. Ngay lập tức spawn item kế tiếp vào bàn (để người chơi thấy item mới xuất hiện liền)
+            SpawnNextItemToTable();
+        }
     }
 
     private void SpawnNextItemToTable()
     {
+        if (_currentObjectOnTable != null) return;
         if (_nextItemBuffer == null) return;
 
         if (_nextItemBuffer.prefab != null)
         {
             _currentObjectOnTable = Instantiate(_nextItemBuffer.prefab, tableSpawnPoint.position, Quaternion.identity);
+            
+            _currentObjectOnTable.transform.SetParent(tableSpawnPoint); 
         }
 
         _nextItemBuffer = spawner.GetNextItemData();
