@@ -138,6 +138,23 @@ public class MaskObject : InteractableObject
         }
     }
 
+    public void ReCheck()
+    {
+        if (!isInFace || isOverlapMaskObject)
+        {
+            Disappear();
+        }
+        else
+        {
+            animator.Play("Idle");
+            if (itemType == MaskItemType.ChiliSlice && isInFace)
+            {
+                FaceController.Instance.Angry();
+                return;
+            }
+        }
+    }
+
     public void Disappear()
     {
         animator.Play("Disappear");
