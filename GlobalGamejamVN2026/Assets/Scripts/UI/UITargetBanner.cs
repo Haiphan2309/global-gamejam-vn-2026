@@ -12,7 +12,7 @@ public class UITargetBanner : MonoBehaviour
     {
         targetText.gameObject.SetActive(true);
         targetTextShadow.gameObject.SetActive(true);
-        targetText.text = $"Coverage Target: \n {targetPercentage}%";
+        targetText.text = $"COVERAGE TARGET: \n {targetPercentage}%";
         targetTextShadow.text = targetText.text;
     }
 }

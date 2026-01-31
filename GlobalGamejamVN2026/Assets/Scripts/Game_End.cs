@@ -27,8 +27,8 @@ public class Game_End : Singleton<Game_End>
     void OnEnable()
     {
         panel.anchoredPosition = new Vector2(0, -1000f);
-        resultText.gameObject.SetActive(false);
-        resultText_shadow.gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
+        resultText_shadow.gameObject.SetActive(true);
         hanabi.SetActive(false);
         button.SetActive(false);
     }
@@ -52,8 +52,7 @@ public class Game_End : Singleton<Game_End>
         FaceController.Instance.Happy();
         isWin = true;
         Debug.Log("Show Score Win called with score: " + scoreValue);
-        resultText.text = "YOU WIN!";
-        resultText_shadow.text = "YOU WIN!";
+        
 
         StopAllCoroutines();
         panel.gameObject.SetActive(true);
@@ -70,8 +69,7 @@ public class Game_End : Singleton<Game_End>
     {
         FaceController.Instance.Angry();
         Debug.Log("Show Score Lose called with score: " + scoreValue);
-        resultText.text = "TRY AGAIN!";
-        resultText_shadow.text = "TRY AGAIN!";
+        
         
         StopAllCoroutines();
         panel.gameObject.SetActive(true);
@@ -89,28 +87,35 @@ public class Game_End : Singleton<Game_End>
         float time = 0f;
         WaitForSeconds wait = new WaitForSeconds(1f / countFPS);
 
+        resultText.text = "Coverage percent:";
+        resultText_shadow.text = "Coverage percent:";
+
         while (time < timeSet)
         {
             int score = Random.Range(0, 99);
-            scoreText.text = score.ToString("D2");
-            scoreText2.text = score.ToString("D2");
+            scoreText.text = score.ToString("D2") + "%";
+            scoreText2.text = score.ToString("D2") + "%";
 
             time += 1f / countFPS;   // tăng đúng bằng khoảng chờ
             yield return wait;
         }
 
         // Hiện số cuối cùng chính xác
-        scoreText.text = scoreValue.ToString("D2");
-        scoreText2.text = scoreValue.ToString("D2");
+        scoreText.text = scoreValue.ToString("D2") + "%";
+        scoreText2.text = scoreValue.ToString("D2") + "%";
 
         if(isWin)
         {
-            
+            resultText.text = "YOU WIN!";
+            resultText_shadow.text = "YOU WIN!";
+
             hanabi.SetActive(true);
             button.SetActive(true);
         }
         else
         {
+            resultText.text = "TRY AGAIN!";
+            resultText_shadow.text = "TRY AGAIN!";
             button.SetActive(true);
             Transform children = button.transform.GetChild(2);
             children.gameObject.SetActive(false);
