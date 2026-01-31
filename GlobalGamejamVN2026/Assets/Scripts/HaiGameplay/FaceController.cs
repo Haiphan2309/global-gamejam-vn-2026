@@ -202,7 +202,10 @@ public class FaceController : Singleton<FaceController>
         for (int i = 0; i < maskObjectContainer.childCount; i++)
         {
             MaskObject obj = maskObjectContainer.GetChild(i).GetComponent<MaskObject>();
-            obj.Disappear();
+            if (obj)
+            {
+                obj.Disappear();
+            }
         }
     }
 }

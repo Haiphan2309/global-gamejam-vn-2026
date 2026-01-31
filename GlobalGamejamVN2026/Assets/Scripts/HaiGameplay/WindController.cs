@@ -1,5 +1,7 @@
 using GDC.Managers;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WindController : MonoBehaviour
@@ -11,18 +13,27 @@ public class WindController : MonoBehaviour
 
     public GameObject windVfx;
 
+    private GameObject maskItemContainer;
+
     private void Start()
     {
         isWinding = false;
+        maskItemContainer = GameObject.FindGameObjectWithTag("CucumberContainer");
         StartCoroutine(Cor_Wind());
     }
 
     private void Update()
     {
-        for (int i = 0; i < FaceController.Instance.maskObjectContainer.childCount; i++)
+        if (!isWinding || maskItemContainer == null)
         {
-            MaskObject obj = FaceController.Instance.maskObjectContainer.GetChild(i).GetComponent<MaskObject>();
-            if (isWinding && obj.itemType == MaskItemType.CucumberSlice)
+            return;
+        }
+
+        MaskObject[] allSlices = GetAllMaskItemInFace(maskItemContainer);
+
+        foreach (var obj in allSlices)
+        {
+            if (obj.itemType == MaskItemType.CucumberSlice)
             {
                 obj.transform.Translate(Vector3.left * windingSpeed * Time.deltaTime);
             }
@@ -39,10 +50,16 @@ public class WindController : MonoBehaviour
         isWinding = false;
         windVfx.SetActive(false);
 
-        for (int i = 0; i < FaceController.Instance.maskObjectContainer.childCount; i++)
+        MaskObject[] allSlices = GetAllMaskItemInFace(maskItemContainer);
+
+        foreach (var obj in allSlices)
         {
-            MaskObject obj = FaceController.Instance.maskObjectContainer.GetChild(i).GetComponent<MaskObject>();
             obj.ReCheck();
         }
+    }
+
+    private MaskObject[] GetAllMaskItemInFace(GameObject container)
+    {
+        return container.GetComponentsInChildren<MaskObject>();
     }
 }
