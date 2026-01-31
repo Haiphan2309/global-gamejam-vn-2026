@@ -130,7 +130,8 @@ public class Game_End : Singleton<Game_End>
 
     public void RestartLevel()
     {
-        GameManager.Instance.LoadSceneManually("Level_" + (SceneManager.GetActiveScene().buildIndex - 1).ToString(), GDC.Enums.TransitionType.IN);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //GameManager.Instance.LoadSceneManually("Level_" + (SceneManager.GetActiveScene().buildIndex - 1).ToString(), GDC.Enums.TransitionType.IN);
     }
     public void GoToMainMenu()
     {
@@ -143,7 +144,7 @@ public class Game_End : Singleton<Game_End>
             GameManager.Instance.LoadSceneManually("MainMenu", GDC.Enums.TransitionType.IN);
             return;
         }
-        GameManager.Instance.LoadSceneManually("Level_" + (SceneManager.GetActiveScene().buildIndex - 1).ToString(), GDC.Enums.TransitionType.IN);
+        GameManager.Instance.LoadSceneManually("Level" + (SceneManager.GetActiveScene().buildIndex).ToString(), GDC.Enums.TransitionType.IN);
     }
 
 }
