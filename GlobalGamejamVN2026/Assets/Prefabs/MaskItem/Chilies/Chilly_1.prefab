@@ -5121,6 +5121,7 @@ MonoBehaviour:
   m_interactPriority: 0
   animator: {fileID: 5874314709469227160}
   dropVfx: {fileID: 7677999645967685475}
+  isTargeted: 0
   itemType: 2
   m_state: 0
 --- !u!50 &8038085325013954751
@@ -5179,7 +5180,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

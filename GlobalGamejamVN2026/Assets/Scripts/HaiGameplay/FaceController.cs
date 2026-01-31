@@ -83,7 +83,10 @@ public class FaceController : Singleton<FaceController>
         Vector2 offset2 = Vector2.ClampMagnitude(dir2, maxEyeOffset);
         eye2.localPosition = eye2OriginLocalPos + offset2;
 
-
+        if (!isPimpleLegit)
+        {
+            Angry();
+        }
     }
 
     public void PressOnNose()
@@ -135,7 +138,7 @@ public class FaceController : Singleton<FaceController>
                             {
                                 pimpleContainer.GetChild(i).gameObject.SetActive(false);
                             }
-                            else
+                            else if (maskObject.itemType != MaskItemType.AcnePatch && maskObject.GetState() == MaskObject.State.IDLE)
                             {
                                 isLegit = false;
                             }
