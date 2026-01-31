@@ -23,6 +23,8 @@ namespace GDC.Managers
         [SerializeField] AudioMixer currentMixer;
         [SerializeField] AudioMixerGroup SFX_MixerGroup;
         [SerializeField] AudioMixerGroup Music_MixerGroup;
+        [SerializeField] AudioClip mainMenuBGM;
+        [SerializeField] AudioClip gamePlayBGM;
 
         private bool isAdPauseUserMusic = false;
 
@@ -698,6 +700,16 @@ namespace GDC.Managers
         public void StopAllMusicPlaying()
         {
 
+        }
+
+        public void PlayMainMenuBGM()
+        {
+            PlayMusic(mainMenuBGM, 1);
+        }
+
+        public void PlayGamePlayBGM()
+        {
+            PlayMusic(gamePlayBGM, 1);
         }
     }
 }

@@ -1207,6 +1207,8 @@ MonoBehaviour:
   currentMixer: {fileID: 24100000, guid: 4ad4b2f79c990a44491a73419100832b, type: 2}
   SFX_MixerGroup: {fileID: 243859828884416902, guid: 4ad4b2f79c990a44491a73419100832b, type: 2}
   Music_MixerGroup: {fileID: 243261478563552786, guid: 4ad4b2f79c990a44491a73419100832b, type: 2}
+  mainMenuBGM: {fileID: 8300000, guid: 4b00daeb2a36ffe4eaae22afbb1f4e3f, type: 3}
+  gamePlayBGM: {fileID: 8300000, guid: f1b8da0159229d7459bda4f45e1a7c78, type: 3}
   LOG_TAG: SoundMgr
 --- !u!1 &8895764120168522895
 GameObject:

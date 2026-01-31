@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using GDC.Managers;
 
 public class GamePlayManager : Singleton<GamePlayManager>
 {
@@ -38,6 +39,7 @@ public class GamePlayManager : Singleton<GamePlayManager>
     }
     public void StartLevel()
     {
+        SoundManager.Instance.PlayGamePlayBGM();
         m_currentTime = 0;
         OnTimeChanged?.Invoke(m_currentTime,levelTime);
         m_currentPercent = 0;
