@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GDC.Utils;
 using System.Collections;
 using UnityEngine;
 
@@ -132,13 +133,15 @@ public class FaceController : Singleton<FaceController>
         yield return new WaitForSeconds(1);
         animator.Play("Angry");
         RemoveAllMaskObject();
-        //TODO: Call lose in system
+        //TODO: Call lose instant in system
     }
 
     public void Happy()
     {
-        animator.Play("Angry");
+        animator.Play("Happy");
         RemoveAllMaskObject();
+
+        GameUtils.ClearAllChild(pimpleContainer);
     }
 
     void RemoveAllMaskObject()
