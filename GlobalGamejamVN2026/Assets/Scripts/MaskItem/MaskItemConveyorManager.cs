@@ -18,17 +18,6 @@ public class MaskItemConveyorManager : Singleton<MaskItemConveyorManager>
     private MaskItemVariant _nextItemBuffer;
     private GameObject _currentObjectOnTable;
 
-    public List<MaskObject> filledItems = new();
-
-    public void RegisterFilledItem(MaskObject item)
-    {
-        if (!filledItems.Contains(item))
-        {
-            filledItems.Add(item);
-            // Check win condition ở đây nếu cần
-        }
-    }
-
     public void OnCustomerArrived(int pimpleCount, int spawnWindow)
     {
         spawner.OnCustomerArrived(pimpleCount, spawnWindow);

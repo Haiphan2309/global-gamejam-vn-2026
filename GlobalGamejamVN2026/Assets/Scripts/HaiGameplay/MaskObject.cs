@@ -149,11 +149,6 @@ public class MaskObject : InteractableObject
                 return;
             }
 
-            if (MaskItemConveyorManager.Instance != null)
-            {
-                MaskItemConveyorManager.Instance.RegisterFilledItem(this);
-            }
-
             if (isInFace)
             {
                 transform.SetParent(FaceController.Instance.maskObjectContainer);
