@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Gameplay;
+using GDC.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -80,6 +81,8 @@ public class MaskObject : InteractableObject
     {
         base.OnReceiveActionFromPlayer(touchPos);
 
+        SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_PICK);
+
         if (MaskItemConveyorManager.Instance != null)
         {
             MaskItemConveyorManager.Instance.NotifyItemPickedUp(this.gameObject);
@@ -117,6 +120,7 @@ public class MaskObject : InteractableObject
         }
         else
         {
+            SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_DROP);
             animator.Play("Idle");
             base.OnDrop(dragPos);
             dropVfx.Play();

@@ -45,3 +45,12 @@ MonoBehaviour:
   - name: SFX_PURCHASE
     Id: 509
     Data: {fileID: 11400000, guid: df2a3b3f714653e4f930706958906f8b, type: 2}
+  - name: SFX_WIND
+    Id: 511
+    Data: {fileID: 11400000, guid: 78d72ceda9148174ead95a17ae870790, type: 2}
+  - name: SFX_PICK
+    Id: 512
+    Data: {fileID: 11400000, guid: a18928ee26ca24a449ddb7d62a0f161a, type: 2}
+  - name: SFX_DROP
+    Id: 513
+    Data: {fileID: 11400000, guid: 5df43622a5942a643aa16c065c23a51e, type: 2}

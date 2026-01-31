@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -22,6 +23,9 @@ public class FaceController : Singleton<FaceController>
     public bool isPimpleLegit, isFreckleLegit;
     void Start()
     {
+        transform.position = new Vector2(0.94f, -10f);
+        transform.DOMoveY(0, 1f).SetDelay(1f);
+
         eye1OriginLocalPos = eye1.localPosition;
         eye2OriginLocalPos = eye2.localPosition;
 

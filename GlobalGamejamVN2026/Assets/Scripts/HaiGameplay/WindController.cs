@@ -1,3 +1,4 @@
+using GDC.Managers;
 using System.Collections;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ public class WindController : MonoBehaviour
     {
         yield return new WaitForSeconds(windStartTimeStamp);
         isWinding = true;
+        SoundManager.Instance.PlaySound(AudioPlayer.SoundID.SFX_WIND);
         windVfx.SetActive(true);
         yield return new WaitForSeconds(windingDuration);
         isWinding = false;
