@@ -58,7 +58,7 @@ MonoBehaviour:
   button: {fileID: 614809759048427697}
   scoreText: {fileID: 6940721804862392713}
   scoreText2: {fileID: 7085241032908202127}
-  timeSet: 5
+  timeSet: 3.5
   panel: {fileID: 1821518679317475281}
 --- !u!1 &614809759048427697
 GameObject:
