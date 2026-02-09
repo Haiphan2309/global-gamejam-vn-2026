@@ -5828,7 +5828,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: b46dce8179720e447bd9fea0408800e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d0adb3bdcf9fd34495ee020667aa795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7807,9 +7807,13 @@ MonoBehaviour:
   eye1: {fileID: 4282672493984888737}
   eye2: {fileID: 208217950329929783}
   maxEyeOffset: 0.3
-  testResult: 0
+  isCanSneeze: 0
+  sneezeTimesptamp: 0
+  numberOfPimple: 2
   isPimpleLegit: 0
   isFreckleLegit: 0
+  stopSneezeVfx: {fileID: 0}
+  dotweenYTarget: -10
 --- !u!60 &7448269284149373812
 PolygonCollider2D:
   m_ObjectHideFlags: 0
